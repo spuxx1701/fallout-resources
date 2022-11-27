@@ -3,14 +3,33 @@
   src: url("./terminal.ttf");
 }
 
+:root {
+  --screen-boder-width: 1rem;
+  --screen-vertical-padding: 2rem;
+}
+
+html {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   background-color: black;
+}
+
+.screen {
   background-image: url("./terminal.jpg");
-  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: contain;
+  height: calc(100vh - 2 * var(--screen-boder-width) - 2 * var(--screen-vertical-padding));
+  width: calc(100vw - 2 * var(--screen-boder-width));
+  border-radius: 5rem;
+  border: var(--screen-boder-width) solid black;
+  display: grid;
+  grid-template-rows: min-content auto;
+  padding-top: var(--screen-vertical-padding);
+  padding-bottom: var(--screen-vertical-padding);
 }
 
 .screen-flicker {
@@ -23,16 +42,20 @@ body {
   pointer-events: none;
 }
 
+.header {
+  text-align: center;
+}
+
+.header h2 {
+  margin-top: 1rem;
+}
+
 article {
+  margin-top: 2rem;
   width: 100%;
   max-width: 80vw;
   height: 100%;
-  max-height: 70vh;
   overflow-y: scroll;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   margin: auto;
   z-index: 2;
 }
