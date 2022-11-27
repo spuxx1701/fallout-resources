@@ -12,6 +12,15 @@ body {
   background-size: contain;
 }
 
+.screen-flicker {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  animation: screen-flicker 1100ms ease alternate infinite;
+  z-index: 5;
+}
+
 article {
   width: 100%;
   max-width: 80vw;
@@ -23,6 +32,7 @@ article {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: auto;
+  z-index: 2;
 }
 
 h1,
@@ -42,13 +52,43 @@ h1 {
   font-size: xx-large;
 }
 
+@keyframes screen-flicker {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.05;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.05;
+  }
+
+  60% {
+    opacity: 0.03;
+  }
+
+  80% {
+    opacity: 0.09;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes text-flicker {
   0% {
     opacity: 1;
   }
 
   50% {
-    opacity: 0.95;
+    opacity: 0.9;
   }
 
   100% {
