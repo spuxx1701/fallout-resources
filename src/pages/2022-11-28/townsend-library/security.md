@@ -2,7 +2,7 @@
 layout: "/src/layouts/terminal"
 ---
 
-<a href="./"> >>> Zurück</a>
+<a href="../"> >>> Zurück</a>
 
 ## Standard Protectron Control Interface v2.40
 

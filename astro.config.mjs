@@ -4,4 +4,5 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://spuxx1701.github.io",
   base: "/fallout-resources",
+  trailingSlash: "always",
 });

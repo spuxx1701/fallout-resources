@@ -6,8 +6,8 @@ layout: "/src/layouts/terminal"
 
 # Hauptmenü
 
-<a href="./inventory"> >>> Verleih</a>
+<a href="./inventory/"> >>> Verleih</a>
 
-<a href="./messages"> >>> Nachrichten</a>
+<a href="./messages/"> >>> Nachrichten</a>
 
-<a href="./security"> >>> Security</a>
+<a href="./security/"> >>> Security</a>

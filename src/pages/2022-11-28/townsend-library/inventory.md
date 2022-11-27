@@ -2,7 +2,7 @@
 layout: "/src/layouts/terminal"
 ---
 
-<a href="./"> >>> Zurück</a>
+<a href="../"> >>> Zurück</a>
 
 # 2077-10-02 Rücknahme
 
