@@ -17,7 +17,7 @@ body {
   background-color: black;
 }
 
-.screen {
+.terminal {
   background-image: url("./terminal.jpg");
   background-attachment: fixed;
   background-position: center;
@@ -42,15 +42,15 @@ body {
   pointer-events: none;
 }
 
-.header {
+.terminal .header {
   text-align: center;
 }
 
-.header h2 {
+.terminal .header h2 {
   margin: 0.5rem 0 0 0;
 }
 
-article {
+.terminal article {
   margin-top: 2rem;
   width: 100%;
   max-width: 80vw;
@@ -60,24 +60,25 @@ article {
   z-index: 2;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p, a {
+.terminal h1,
+.terminal h2,
+.terminal h3,
+.terminal h4,
+.terminal h5,
+.terminal h6,
+.terminal p,
+.terminal a {
   font-family: Terminal;
   font-weight: bold;
   color: #71ca84;
   animation: text-glow 1000ms infinite, text-flicker 700ms infinite;
 }
 
-a {
+.terminal a {
   font-size: large;
 }
 
-h1 {
+.terminal h1 {
   font-size: xx-large;
 }
 

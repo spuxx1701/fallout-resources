@@ -1,0 +1,23 @@
+---
+import Note from "../layouts/note";
+import Terminal from "../layouts/terminal";
+
+async function getAllPages() {
+  return await Astro.glob("./**/*");
+}
+---
+
+<Note>
+  <h1>Hi there!</h1>
+
+  <p>
+    This microsite hosts various resources for my Fallout tabletop group. I use
+    it to simulate terminals, letters, books and other forms of content.
+  </p>
+  <!-- 
+  {
+    (await getAllPages()).map((page) => (
+      <a href={page.url}>{page.frontmatter.title}</a>
+    ))
+  } -->
+</Note>

@@ -1,0 +1,46 @@
+@font-face {
+  font-family: Note;
+  src: url("./note.ttf");
+}
+
+body {
+  background-image: url("./note.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.note {
+  padding: 5rem;
+}
+
+.note h1,
+.note h2,
+.note h3,
+.note h4,
+.note h5,
+.note h6,
+.note p,
+.note a {
+  font-family: Note;
+  color: black;
+  margin: 1rem 0 1rem 0;
+  text-shadow: 0 0 5px #b4ab99;
+}
+
+.note h1 {
+  font-size: 4rem;
+}
+
+.note h2 {
+  font-size: 3rem;
+}
+
+.note h3 {
+  font-size: 2.5rem;
+}
+
+.note h4, .note h5, .note h6, .note p, .note a {
+  font-size: 2rem;
+}

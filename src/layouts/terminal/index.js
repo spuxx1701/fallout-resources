@@ -1,2 +1,2 @@
-import Layout from "./terminal.astro";
-export default Layout;
+import Terminal from "./terminal.astro";
+export default Terminal;
