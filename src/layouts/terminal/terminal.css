@@ -43,11 +43,15 @@ h3,
 h4,
 h5,
 h6,
-p {
+p, a {
   font-family: Terminal;
   font-weight: bold;
   color: #71ca84;
   animation: text-glow 1000ms infinite, text-flicker 700ms infinite;
+}
+
+a {
+  font-size: large;
 }
 
 h1 {
