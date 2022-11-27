@@ -20,6 +20,7 @@ body {
   background-color: black;
   animation: screen-flicker 1100ms ease alternate infinite;
   z-index: 5;
+  pointer-events: none;
 }
 
 article {
