@@ -1,9 +1,7 @@
 ---
 import Terminal from "../layouts/terminal";
 
-async function getAllPages() {
-  return await Astro.glob("./**/*");
-}
+const allPages = await Astro.glob("./**/*");
 ---
 
 <Terminal>
@@ -13,10 +11,15 @@ async function getAllPages() {
     This microsite hosts various resources for my Fallout tabletop group. I use
     it to simulate terminals, letters, books and other forms of content.
   </p>
-  <!-- 
-  {
-    (await getAllPages()).map((page) => (
-      <a href={page.url}>{page.frontmatter.title}</a>
-    ))
-  } -->
+
+  <h2>Content</h2>
+  <li>
+    {
+      allPages.map((page) => (
+        <ul>
+          <a href={page.url}>{page.url}</a>
+        </ul>
+      ))
+    }
+  </li>
 </Terminal>
