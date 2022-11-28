@@ -19,6 +19,11 @@ import "./terminal.css";
       </div>
       <div class="terminal-content">
         <slot />
+        <div id="terminal-footer">
+          <p>></p>
+          <input id="terminal-footer-input" value="" />
+          <span id="terminal-footer-cursor">▮</span>
+        </div>
       </div>
     </article>
   </body>
@@ -36,4 +41,21 @@ import "./terminal.css";
   }
   handleResize();
   window.addEventListener("resize", handleResize);
+  function handleInput(event: any) {
+    const length = event.target.value.length + 1;
+    document.documentElement.style.setProperty(
+      "--terminal-input-width",
+      `${length}ch`
+    );
+  }
+  (
+    document.getElementById("terminal-footer-input") as HTMLElement
+  ).addEventListener("input", handleInput);
+  function handleChange(event: any) {
+    event.target.value = "";
+    handleInput(event);
+  }
+  (
+    document.getElementById("terminal-footer-input") as HTMLElement
+  ).addEventListener("change", handleChange);
 </script>

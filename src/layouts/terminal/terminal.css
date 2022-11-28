@@ -8,6 +8,7 @@
 :root {
   --screen-boder-width: 1rem;
   --screen-vertical-padding: 2rem;
+  --terminal-input-width: 1ch;
 }
 
 .terminal {
@@ -16,8 +17,6 @@
   border-radius: 5vw;
   display: flex;
   flex-direction: column;
-  /*padding-top: var(--screen-vertical-padding);
-  padding-bottom: var(--screen-vertical-padding); */
 }
 
 .screen-background {
@@ -55,7 +54,7 @@
 
 #terminal-header {
   position: fixed;
-  top: 1rem;
+  top: var(--screen-boder-width);
   text-align: center;
   align-self: center;
   width: 80%;
@@ -79,14 +78,56 @@
   z-index: 2;
 }
 
+#terminal-footer {
+  bottom: var(--screen-boder-width);
+  text-align: start;
+  height: 3rem;
+  width: 80%;
+  z-index: 3;
+  display: flex;
+  background-image: url("./terminal.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: contain;
+}
+
+#terminal-footer-input {
+  border: none !important;
+  background-color: transparent !important;
+  outline: none !important;
+  caret-color: transparent;
+  width: var(--terminal-input-width);
+}
+
+#terminal-footer-cursor {
+  position: relative;
+  color: #71ca84;
+  font-size: x-large;
+  left: -0.75ch;
+  margin: 0.5rem 0 0.5rem 0;
+  animation: cursor-blink 600ms linear infinite;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes cursor-blink {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 .terminal h1,
 .terminal h2,
-.terminal h3,
-.terminal h4,
+.terminal h3, from .terminal h4,
 .terminal h5,
 .terminal h6,
 .terminal p,
-.terminal a {
+.terminal a,
+.terminal input {
   font-family: Terminal;
   font-weight: bold;
   color: #71ca84;
