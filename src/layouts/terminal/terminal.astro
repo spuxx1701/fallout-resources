@@ -8,16 +8,32 @@ import "./terminal.css";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
+    <div class="screen-background"></div>
+    <div class="screen-border"></div>
     <div class="screen-flicker"></div>
-    <div class="terminal">
-      <div class="header">
+    <article class="terminal text-glow">
+      <div id="terminal-header">
         <h2>ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM</h2>
         <h2>COPYRIGHT 2075-2077 ROBCO INDUSTRIES</h2>
         <h2>-Display 1-</h2>
       </div>
-      <article class="text-glow">
+      <div class="terminal-content">
         <slot />
-      </article>
-    </div>
+      </div>
+    </article>
   </body>
 </html>
+
+<script>
+  function handleResize() {
+    const headerHeight = (
+      document.getElementById("terminal-header") as HTMLElement
+    ).clientHeight;
+    document.documentElement.style.setProperty(
+      "--terminal-header-height",
+      `${headerHeight}px`
+    );
+  }
+  handleResize();
+  window.addEventListener("resize", handleResize);
+</script>

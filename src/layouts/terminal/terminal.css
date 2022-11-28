@@ -11,18 +11,36 @@
 }
 
 .terminal {
+  height: 100%;
+  width: 100%;
+  border-radius: 5vw;
+  display: flex;
+  flex-direction: column;
+  /*padding-top: var(--screen-vertical-padding);
+  padding-bottom: var(--screen-vertical-padding); */
+}
+
+.screen-background {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
   background-image: url("./terminal.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: contain;
-  height: calc(100vh - 2 * var(--screen-boder-width) - 2 * var(--screen-vertical-padding));
+  border-radius: 5vw;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.screen-border {
+  position: fixed;
+  height: calc(100vh - 2 * var(--screen-boder-width));
   width: calc(100vw - 2 * var(--screen-boder-width));
-  border-radius: 5rem;
+  border-radius: 5vw;
   border: var(--screen-boder-width) solid black;
-  display: grid;
-  grid-template-rows: min-content auto;
-  padding-top: var(--screen-vertical-padding);
-  padding-bottom: var(--screen-vertical-padding);
+  z-index: 10;
+  pointer-events: none;
 }
 
 .screen-flicker {
@@ -35,21 +53,29 @@
   pointer-events: none;
 }
 
-.terminal .header {
+#terminal-header {
+  position: fixed;
+  top: 1rem;
   text-align: center;
+  align-self: center;
+  width: 80%;
+  z-index: 3;
+  background-image: url("./terminal.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: contain;
 }
 
-.terminal .header h2 {
-  margin: 0.5rem 0 0 0;
+#terminal-header h2 {
+  margin: 0.5rem 0 0.5rem 0;
 }
 
-.terminal article {
-  margin-top: 2rem;
+.terminal-content {
+  align-self: center;
   width: 100%;
-  max-width: 80vw;
-  height: 100%;
-  overflow-y: scroll;
-  margin: auto;
+  max-width: 80%;
+  margin: calc(var(--terminal-header-height) + var(--screen-boder-width)) var(--screen-boder-width) var(--screen-boder-width) var(--screen-boder-width);
+  padding-bottom: 5rem;
   z-index: 2;
 }
 
