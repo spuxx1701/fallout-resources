@@ -96,14 +96,15 @@
   background-color: transparent !important;
   outline: none !important;
   caret-color: transparent;
-  width: var(--terminal-input-width);
+  width: 100%;
 }
 
 #terminal-footer-cursor {
   position: relative;
   color: #71ca84;
   font-size: x-large;
-  left: -0.75ch;
+  width: 0;
+  right: calc(0.5ch + -0.49 * var(--terminal-input-width));
   margin: 0.5rem 0 0.5rem 0;
   animation: cursor-blink 600ms linear infinite;
   z-index: 3;
