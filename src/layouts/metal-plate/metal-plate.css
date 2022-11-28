@@ -1,0 +1,44 @@
+@font-face {
+  font-family: MetalPlate;
+  src: url("./metal-plate.ttf");
+}
+
+body {
+  margin: 0;
+  background-image: url("./metal-plate.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.metal-plate {
+  margin: auto;
+}
+
+.metal-plate h1,
+.metal-plate h2,
+.metal-plate h3,
+.metal-plate h4,
+.metal-plate h5,
+.metal-plate h6,
+.metal-plate p,
+.metal-plate a {
+  text-align: center;
+  font-family: MetalPlate;
+  color: white;
+  margin: 1rem 0 1rem 0;
+  text-shadow: 0 0 5px black;
+}
+
+.metal-plate h1 {
+  font-size: 6rem;
+}
+
+.metal-plate h2 {
+  font-size: 4rem;
+}
+
+.metal-plate h3, .metal-plate h4, .metal-plate h5, .metal-plate h6, .metal-plate p, .metal-plate a {
+  font-size: 3rem;
+}
