@@ -1,19 +1,19 @@
+@import "../global.css";
+
 @font-face {
   font-family: MetalPlate;
   src: url("./metal-plate.ttf");
 }
 
-body {
-  margin: 0;
+.metal-plate {
   background-image: url("./metal-plate.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.metal-plate {
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .metal-plate h1,

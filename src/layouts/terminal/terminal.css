@@ -1,3 +1,5 @@
+@import "../global.css";
+
 @font-face {
   font-family: Terminal;
   src: url("./terminal.ttf");
@@ -6,15 +8,6 @@
 :root {
   --screen-boder-width: 1rem;
   --screen-vertical-padding: 2rem;
-}
-
-html {
-  overflow: hidden;
-}
-
-body {
-  margin: 0;
-  background-color: black;
 }
 
 .terminal {

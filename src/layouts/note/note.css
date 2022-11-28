@@ -1,17 +1,16 @@
+@import "../global.css";
+
 @font-face {
   font-family: Note;
   src: url("./note.ttf");
 }
 
-body {
+.note {
   background-image: url("./note.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.note {
   padding: 5rem;
 }
 
