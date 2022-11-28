@@ -6,7 +6,8 @@
 }
 
 :root {
-  --screen-boder-width: 1rem;
+  --screen-border-width: 1rem;
+  --screen-border-color: #000000;
   --screen-vertical-padding: 2rem;
   --terminal-input-width: 1ch;
 }
@@ -28,16 +29,18 @@
   background-position: center;
   background-size: contain;
   border-radius: 5vw;
+  box-shadow: 0px 0px 20px var(--screen-border-color);
   z-index: 1;
   pointer-events: none;
 }
 
 .screen-border {
   position: fixed;
-  height: calc(100vh - 2 * var(--screen-boder-width));
-  width: calc(100vw - 2 * var(--screen-boder-width));
+  height: calc(100vh - 2 * var(--screen-border-width));
+  width: calc(100vw - 2 * var(--screen-border-width));
   border-radius: 5vw;
-  border: var(--screen-boder-width) solid black;
+  border: var(--screen-border-width) solid var(--screen-border-color);
+  box-shadow: 0px 0px 20px var(--screen-border-color);
   z-index: 10;
   pointer-events: none;
 }
@@ -54,7 +57,7 @@
 
 #terminal-header {
   position: fixed;
-  top: var(--screen-boder-width);
+  top: var(--screen-border-width);
   text-align: center;
   align-self: center;
   width: 80%;
@@ -73,13 +76,13 @@
   align-self: center;
   width: 100%;
   max-width: 80%;
-  margin: calc(var(--terminal-header-height) + var(--screen-boder-width)) var(--screen-boder-width) var(--screen-boder-width) var(--screen-boder-width);
+  margin: calc(var(--terminal-header-height) + var(--screen-border-width)) var(--screen-border-width) var(--screen-border-width) var(--screen-border-width);
   padding-bottom: 5rem;
   z-index: 2;
 }
 
 #terminal-footer {
-  bottom: var(--screen-boder-width);
+  bottom: var(--screen-border-width);
   text-align: start;
   height: 3rem;
   width: 80%;
