@@ -3,7 +3,17 @@ import "./terminal-input.css";
 
 // This component MUST by embedded using the client:only='preact' property.
 
-export default function TerminalInput() {
+export interface Command {
+  inputs: string[];
+  output: string;
+  target?: string;
+}
+
+export interface Props {
+  commands?: Command[];
+}
+
+export default function TerminalInput<Props>(props: Props) {
   const [value, setValue] = useState("");
   const [log, setLog] = useState([] as string[]);
 
@@ -27,13 +37,26 @@ export default function TerminalInput() {
   };
 
   const submit = () => {
-    console.log(value);
-    if (value) setLog([...log, value]);
+    console.log(props.successKeywords);
+    if (props.commands?.length > 0) {
+      for (const command of props.commands) {
+        if (!Array.isArray(command.inputs)) command.inputs = [command.inputs];
+        if (
+          command.inputs?.find(
+            (input) =>
+              input === "*" || input.toLowerCase() === value.toLowerCase()
+          )
+        ) {
+          setLog([...log, `> ${value}`, command.output || "OK"]);
+          if (command.target) {
+            window.location = command.target;
+          }
+          return;
+        }
+      }
+    }
+    setLog([...log, `> ${value}`]);
   };
-
-  useEffect(() => {
-    console.log(log);
-  }, [log]);
 
   useEffect(() => {
     // Subscribe to window's keydown event to receive all key down events and

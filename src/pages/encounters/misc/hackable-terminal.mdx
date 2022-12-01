@@ -4,6 +4,15 @@ layout: "/src/layouts/terminal"
 
 import TerminalInput from "/src/components/terminal-input";
 
-Blabla
+### Enter your password:
 
-<TerminalInput client:load />
+<TerminalInput
+  client:load
+  commands={[
+    {
+      inputs: ["foo", "bar"],
+      output: "Command acknowledged.",
+      target: "/fallout-resources/",
+    },
+  ]}
+/>
