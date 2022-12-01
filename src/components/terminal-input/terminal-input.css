@@ -1,0 +1,43 @@
+#terminal-input {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  height: 3rem;
+  width: 80%;
+  z-index: 3;
+  background-image: url("./terminal.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: contain;
+}
+
+#terminal-input p {
+  margin: 0;
+  min-width: 1ch;
+  white-space: pre;
+}
+
+#terminal-input-field {
+  align-items: center;
+  display: flex;
+}
+
+#terminal-input-cursor {
+  position: relative;
+  background-color: #71ca84;
+  width: 1ch;
+  height: 100%;
+  margin: 0.5rem 0 0.5rem 0;
+  animation: cursor-blink 600ms linear infinite;
+  z-index: 3;
+}
+
+@keyframes cursor-blink {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
