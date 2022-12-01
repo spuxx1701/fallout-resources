@@ -1,9 +1,7 @@
 #terminal-input {
   display: flex;
   flex-direction: column;
-  text-align: start;
-  height: 3rem;
-  width: 80%;
+  width: 100%;
   z-index: 3;
   background-image: url("./terminal.jpg");
   background-attachment: fixed;
@@ -12,7 +10,7 @@
 }
 
 #terminal-input p {
-  margin: 0;
+  margin: 2px 0 2px 0;
   min-width: 1ch;
   white-space: pre;
 }
@@ -26,8 +24,7 @@
   position: relative;
   background-color: #71ca84;
   width: 1ch;
-  height: 100%;
-  margin: 0.5rem 0 0.5rem 0;
+  height: 1em;
   animation: cursor-blink 600ms linear infinite;
   z-index: 3;
 }
