@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "preact/hooks";
+import type { JSX } from "preact/jsx-runtime";
 import "./terminal-input.css";
 
 // This component MUST by embedded using the client:only='preact' property.
@@ -27,7 +28,7 @@ export default function TerminalInput<Props>(props: Props) {
               input === "*" || input.toLowerCase() === value.toLowerCase()
           )
         ) {
-          setLog([...log, { value }, command.output || "OK"]);
+          setLog([...log, value, command.output || "OK"]);
           if (command.target) {
             window.location = command.target;
           }
@@ -50,19 +51,20 @@ export default function TerminalInput<Props>(props: Props) {
     setInputWidth("0ch");
   };
 
-  const handleInputRowClick = (event) => {
-    document.getElementById("terminal-input-element").focus();
+  const focusInput = (event: JSX.TargetedMouseEvent<HTMLDivElement>) => {
+    (event.target as HTMLElement)
+      ?.querySelector(".terminal-input-element")
+      ?.focus();
   };
 
   return (
-    <div class="terminal-input">
+    <div class="terminal-input" onClick={focusInput}>
       {log.map((str) => (
         <p>{"> " + str}</p>
       ))}
-      <div class="terminal-input-row " onClick={handleInputRowClick}>
+      <div class="terminal-input-row ">
         <p>{"> "}</p>
         <input
-          id="terminal-input-element"
           class="terminal-input-element"
           style={{ width: inputWidth }}
           onInput={handleInput}

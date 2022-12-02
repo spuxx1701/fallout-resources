@@ -9,6 +9,7 @@
   background-attachment: fixed;
   background-position: center;
   background-size: contain;
+  cursor: pointer;
 }
 
 .terminal-input p, .terminal-input input {
@@ -16,6 +17,7 @@
   max-width: 100%;
   text-overflow: ellipsis;
   white-space: pre;
+  pointer-events: none;
 }
 
 .terminal-input-row {

@@ -10,9 +10,13 @@ import TerminalInput from "/src/components/terminal-input";
   client:load
   commands={[
     {
-      inputs: ["foo", "bar"],
-      output: "Command acknowledged.",
+      inputs: ["target"],
+      output: "Going to index page.",
       target: "/fallout-resources/",
+    },
+    {
+      inputs: ["help"],
+      output: "Available commands:\n- target\n- help",
     },
   ]}
 />
