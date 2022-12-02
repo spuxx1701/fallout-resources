@@ -25,7 +25,11 @@
 }
 
 #terminal-input-field-hiden {
-  display: none;
+  width: 0;
+  overflow: hidden;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 #terminal-input-cursor {
