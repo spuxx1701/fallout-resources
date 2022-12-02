@@ -69,7 +69,7 @@ export default function TerminalInput<Props>(props: Props) {
   useEffect(() => {
     // Subscribe to window's keydown event to receive all key down events and
     // add them to the value
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("input", handleKeyDown);
     return () => {
       window.removeEventListener("input", handleKeyDown);
     };
