@@ -14,33 +14,10 @@ export interface Props {
 }
 
 export default function TerminalInput<Props>(props: Props) {
-  const [value, setValue] = useState("");
   const [log, setLog] = useState([] as string[]);
-  const [showKeyboardToggle, setShowKeyboardToggle] = useState(false);
+  const [inputWidth, setInputWidth] = useState("0ch");
 
-  const handleKeyDown = useCallback(
-    (event: KeyboardEvent) => {
-      const key = event.key || String.fromCharCode(event.code);
-      if (!key || key.length < 1) return;
-      switch (key) {
-        case "Enter":
-          event.preventDefault();
-          submit();
-          setValue("");
-          break;
-        case "Backspace":
-          event.preventDefault();
-          setValue(`${value.slice(0, -1)}`);
-          break;
-        default:
-          if (key.length > 1) return;
-          setValue(`${value}${key}`);
-      }
-    },
-    [value]
-  );
-
-  const submit = () => {
+  const submit = (value) => {
     if (props.commands?.length > 0) {
       for (const command of props.commands) {
         if (!Array.isArray(command.inputs)) command.inputs = [command.inputs];
@@ -50,7 +27,7 @@ export default function TerminalInput<Props>(props: Props) {
               input === "*" || input.toLowerCase() === value.toLowerCase()
           )
         ) {
-          setLog([...log, `> ${value}`, command.output || "OK"]);
+          setLog([...log, { value }, command.output || "OK"]);
           if (command.target) {
             window.location = command.target;
           }
@@ -58,47 +35,41 @@ export default function TerminalInput<Props>(props: Props) {
         }
       }
     }
-    setLog([...log, `> ${value}`]);
+    setLog([...log, value]);
   };
 
-  const handleShowKeyboard = () => {
-    document.getElementById("terminal-input-field-hiden")?.focus();
+  const handleInput = (event) => {
+    setInputWidth(`${event.target.value.length}ch`);
   };
 
-  useEffect(() => {
-    // Subscribe to window's keydown event to receive all key down events and
-    // add them to the value
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [handleKeyDown]);
+  const handleChange = (event) => {
+    if (event.target.value) {
+      submit(event.target.value);
+    }
+    event.target.value = "";
+    setInputWidth("0ch");
+  };
 
-  useEffect(() => {
-    setShowKeyboardToggle(
-      (window.innerWidth <= 768 && window.innerHeight <= 1024) ||
-        (window.innerWidth <= 1024 && window.innerHeight <= 768)
-    );
-  }, []);
+  const handleInputRowClick = (event) => {
+    document.getElementById("terminal-input-element").focus();
+  };
 
   return (
-    <div id="terminal-input">
+    <div class="terminal-input">
       {log.map((str) => (
-        <p>{str}</p>
+        <p>{"> " + str}</p>
       ))}
-      <div id="terminal-input-field">
-        <input id="terminal-input-field-hiden" value={value} />
-        <p id="terminal-input-text">{"> " + value}</p>
-        <div id="terminal-input-cursor"></div>
-        {showKeyboardToggle && (
-          <button
-            class="terminal-keyboard-button"
-            type="button"
-            onClick={handleShowKeyboard}
-          >
-            <i class="fa-solid fa-keyboard"></i>
-          </button>
-        )}
+      <div class="terminal-input-row " onClick={handleInputRowClick}>
+        <p>{"> "}</p>
+        <input
+          id="terminal-input-element"
+          class="terminal-input-element"
+          style={{ width: inputWidth }}
+          onInput={handleInput}
+          onChange={handleChange}
+          autofocus={true}
+        />
+        <div class="terminal-input-cursor"></div>
       </div>
     </div>
   );

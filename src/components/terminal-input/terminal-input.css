@@ -1,6 +1,6 @@
 @import "@fortawesome/fontawesome-free/css/all.css";
 
-#terminal-input {
+.terminal-input {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -11,34 +11,36 @@
   background-size: contain;
 }
 
-#terminal-input p {
+.terminal-input p, .terminal-input input {
   margin: 2px 0 2px 0;
-  min-width: 1ch;
   max-width: 100%;
   text-overflow: ellipsis;
   white-space: pre;
 }
 
-#terminal-input-field {
+.terminal-input-row {
   align-items: center;
   display: flex;
 }
 
-#terminal-input-field-hiden {
-  width: 0;
-  overflow: hidden;
+.terminal-input-element {
+  padding: 0;
+  margin: 0;
   background-color: transparent;
   border: none;
   outline: none;
-  padding: 0;
-  margin: 0;
+  min-width: 0ch;
+  max-width: 100%;
+  caret-color: transparent;
+  text-overflow: ellipsis;
+  white-space: pre;
 }
 
-#terminal-input-cursor {
+.terminal-input-cursor {
   position: relative;
   background-color: #71ca84;
-  width: 1ch;
   height: 1em;
+  width: 1ch;
   animation: cursor-blink 600ms linear infinite;
   z-index: 3;
 }

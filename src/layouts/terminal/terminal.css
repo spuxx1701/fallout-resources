@@ -103,6 +103,10 @@
   font-size: xx-large;
 }
 
+.terminal p, .terminal input {
+  font-size: medium;
+}
+
 @keyframes screen-flicker {
   0% {
     opacity: 0;
