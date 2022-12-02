@@ -67,6 +67,9 @@ export default function TerminalInput<Props>(props: Props) {
         <input
           class="terminal-input-element"
           style={{ width: inputWidth }}
+          inputMode="text"
+          autoCapitalize={false}
+          autoCorrect={false}
           onInput={handleInput}
           onChange={handleChange}
           autofocus={true}
