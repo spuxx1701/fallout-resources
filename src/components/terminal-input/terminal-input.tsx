@@ -68,11 +68,11 @@ export default function TerminalInput<Props>(props: Props) {
           class="terminal-input-element"
           style={{ width: inputWidth }}
           inputMode="text"
-          autoCapitalize={false}
-          autoCorrect={false}
+          autoCapitalize="off"
+          autoCorrect="off"
           onInput={handleInput}
           onChange={handleChange}
-          autofocus={true}
+          autoFocus={true}
         />
         <div class="terminal-input-cursor"></div>
       </div>
