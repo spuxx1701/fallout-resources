@@ -20,8 +20,7 @@ export default function TerminalInput<Props>(props: Props) {
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
-      const { key } = event;
-      alert(key);
+      const key = event.key || String.fromCharCode(event.code);
       if (!key || key.length < 1) return;
       switch (key) {
         case "Enter":
@@ -69,9 +68,9 @@ export default function TerminalInput<Props>(props: Props) {
   useEffect(() => {
     // Subscribe to window's keydown event to receive all key down events and
     // add them to the value
-    window.addEventListener("input", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
-      window.removeEventListener("input", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown]);
 
