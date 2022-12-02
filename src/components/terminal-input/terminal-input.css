@@ -1,3 +1,5 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
 #terminal-input {
   display: flex;
   flex-direction: column;
@@ -12,12 +14,18 @@
 #terminal-input p {
   margin: 2px 0 2px 0;
   min-width: 1ch;
+  max-width: 100%;
+  text-overflow: ellipsis;
   white-space: pre;
 }
 
 #terminal-input-field {
   align-items: center;
   display: flex;
+}
+
+#terminal-input-field-hiden {
+  display: none;
 }
 
 #terminal-input-cursor {
@@ -27,6 +35,15 @@
   height: 1em;
   animation: cursor-blink 600ms linear infinite;
   z-index: 3;
+}
+
+.terminal-keyboard-button {
+  position: fixed;
+  left: 85%;
+  background-color: transparent;
+  border: none;
+  color: #71ca84;
+  font-size: 1.6rem;
 }
 
 @keyframes cursor-blink {
