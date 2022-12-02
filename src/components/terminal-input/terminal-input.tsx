@@ -71,7 +71,7 @@ export default function TerminalInput<Props>(props: Props) {
     // add them to the value
     window.addEventListener("keydown", handleKeyDown);
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("input", handleKeyDown);
     };
   }, [handleKeyDown]);
 
