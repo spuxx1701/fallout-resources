@@ -21,6 +21,7 @@ export default function TerminalInput<Props>(props: Props) {
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
       const { key } = event;
+      alert(key);
       if (!key || key.length < 1) return;
       switch (key) {
         case "Enter":
