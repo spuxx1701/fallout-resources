@@ -46,9 +46,9 @@ export default function TerminalInput<Props>(props: Props) {
   const handleChange = (event) => {
     if (event.target.value) {
       submit(event.target.value);
+      event.target.value = "";
+      setInputWidth("0ch");
     }
-    event.target.value = "";
-    setInputWidth("0ch");
   };
 
   const focusInput = (event: JSX.TargetedMouseEvent<HTMLDivElement>) => {
